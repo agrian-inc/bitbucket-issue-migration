@@ -44,7 +44,7 @@ class CommitMap:
                 for line in lines:
                     hg_hash, git_hash = self.deserialize_line(line)
                     self.maps[repo_name][hg_hash] = git_hash
-        self.check_uniqueness()
+#         self.check_uniqueness()
 
     def store_to_disk(self):
         for repo_name in self.maps:

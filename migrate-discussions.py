@@ -473,10 +473,10 @@ def construct_gpull_request_body(bpull, bexport, cmap, args):
     destination = bpull["destination"]
     destination_brepo = destination["repository"]["full_name"]
     destination_bbranch = destination["branch"]["name"]
-    destination_bhash = destination["commit"]["hash"]
+    destination_bhash = destination["commit"]["hash"] if destination["commit"] else None
     destination_grepo = map_brepo_to_grepo(destination_brepo)
     destination_gbranch = cmap.convert_branch_name(branch=destination_bbranch, repo=destination_brepo, default_repo=bexport.get_repo_full_name())
-    destination_ghash = cmap.convert_commit_hash(destination_bhash)
+    destination_ghash = cmap.convert_commit_hash(destination_bhash) if destination_bhash else None
     if destination_brepo != bexport.get_repo_full_name():
         print("Error: the destination of a pull request, '{}', is not '{}'.".format(destination_brepo, bexport.get_repo_full_name()))
     if destination_ghash is None:
@@ -577,7 +577,8 @@ def construct_gissue_comments(bcomments, cmap, args, bexport):
                 "created_at": convert_date(bcomment["created_on"])
             }
             comments.append(comment)
-        except:
+        except Exception as inst:
+            print(inst)
             print("Failed to get comment id {}".format(comment_id))
 
     comments.sort(key=lambda x: x["created_at"])

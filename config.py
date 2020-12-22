@@ -172,6 +172,8 @@ KNOWN_REPO_MAPPING = {
     "viperproject/silver-verifiedif": "viperproject/silver-verifiedif",
     "viperproject/obligations-silver": "viperproject/obligations-silver",
     "Felale/gobra-one": "viperproject/gobra",
+    "agrian/twilight": "agrian-inc/twilight",
+    "agrian/kraken": "agrian-inc/kraken",
 }
 
 # Mapping of known Bitbucket repos to their number of issues.
@@ -239,6 +241,8 @@ KNOWN_ISSUES_COUNT_MAPPING = {
     "viperproject/silver-verifiedif": 0,
     "viperproject/obligations-silver": 0,
     "Felale/gobra-one": 46,
+    "agrian/twilight": 0,
+    "agrian/kraken": 0,
 }
 
 KNOWN_CMAP_PATHS = {
@@ -302,4 +306,6 @@ KNOWN_CMAP_PATHS = {
     "viperproject/silver-attributes": "migration_data/silver-attributes_cmap.txt",
     "viperproject/silver-verifiedif": "migration_data/silver-verifiedif_cmap.txt",
     "Felale/gobra-one": "migration_data/gobra_cmap.txt",
+    "agrian/twilight": "../migrate/twilight.git/cmap.txt",
+    "agrian/kraken": "../migrate/kraken.git/cmap.txt",
 }
